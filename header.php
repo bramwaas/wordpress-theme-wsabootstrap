@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+<?php
+/**
+ * @copyright  Copyright (C) 2015 - 2017 AHC Waasdorp. All rights reserved.
+ * @license    GNU/GPL, see LICENSE
+ * @package wsabootstrap
+ * 
+ * The header for our theme
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ */
+
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -22,27 +36,36 @@
 
   <body>
 
-    <div class="navbar navbar-default " role="navigation"> <!-- <div class="navbar navbar-inverse navbar-fixed-top"> -->
+    <div id="masthead" class="navbar navbar-default " role="banner"> <!-- <div class="navbar navbar-inverse navbar-fixed-top"> -->
       <div class="navbar-inner">
         <div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header>
 		  		<button type="button"  class="navbar-toggle btn btn-navbar " data-toggle="collapse" data-target=".nav-collapse" aria-controls="nav-collapse" aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
+					<span class="sr-only"><?php echo esc_html__('Toggle navigation', 'wsabootstrap'); ?></span>
             		<span class="icon-bar"></span>
             		<span class="icon-bar"></span>
             		<span class="icon-bar"></span>
           		</button>
-          		<a class="navbar-brand brand " href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
+                <div class="navbar-brand">
+                    <?php if ( get_theme_mod( 'wsabootstrap_logo' ) ): ?>
+                        <a href="<?php echo esc_url( home_url( '/' )); ?>">
+                            <img src="<?php echo get_theme_mod( 'wsabootstrap_logo' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+                        </a>
+                    <?php else : ?>
+                        <a class="site-title" href="<?php echo esc_url( home_url( '/' )); ?>"><?php esc_url(bloginfo('name')); ?></a>
+                    <?php endif; ?>
+                </div>
           	</div>	
-          	<div class="nav-collapse navbar-collapse collapse">
+          	<div class="navbar-collapse collapse" role="navigation">
             <ul class="nav navbar-nav flex-column nav-tabs "><!-- eventueel ook nav-tabs   -->
   
  		  <?php
   /* wp_list_pages(array('title_li' => ''));
    * home page uitsluiten van menu op basis van id = 7
+   * wp_list_pages(array('title_li' => '', 'exclude' => 7)) ; ?>
    */
-  			wp_list_pages(array('title_li' => '', 'exclude' => 7)) ; ?>
+  			
              
             </ul>
             <!--form class="navbar-form pull-right">
