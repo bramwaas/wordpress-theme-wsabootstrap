@@ -22,3 +22,62 @@ body {
      padding-top: 60px; 
      padding-bottom: 40px; 
 }
+/* aangepaste active in verband met wordpress */
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus ,
+.navbar-default .navbar-nav .current_page_item a,
+.navbar-default .navbar-nav .current_page_item a:hover,
+.navbar-default .navbar-nav .current_page_item a:focus,
+.navbar-default .navbar-nav .current_page_parent a,
+.navbar-default .navbar-nav .current_page_parent a:hover,
+.navbar-default .navbar-nav .current_page_parent a:focus {
+  color: #555;
+  background-color: #e7e7e7;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus ,
+  .navbar-default .navbar-nav .open .dropdown-menu .current_page_item a,
+  .navbar-default .navbar-nav .open .dropdown-menu .current_page_item a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu .current_page_item a:focus,
+  .navbar-default .navbar-nav .open .dropdown-menu .current_page_parent a,
+  .navbar-default .navbar-nav .open .dropdown-menu .current_page_parent a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu .current_page_parent a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+  }
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus ,
+.navbar-inverse .navbar-nav .current_page_item a,
+.navbar-inverse .navbar-nav .current_page_item a:hover,
+.navbar-inverse .navbar-nav .current_page_item a:focus,
+.navbar-inverse .navbar-nav .current_page_parent a,
+.navbar-inverse .navbar-nav .current_page_parent a:hover,
+.navbar-inverse .navbar-nav .current_page_parent a:focus {
+  color: #fff;
+  background-color: #080808;
+}
+
+@media (max-width: 767px) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus ,
+  .navbar-inverse .navbar-nav .open .dropdown-menu .current_page_item a,
+  .navbar-inverse .navbar-nav .open .dropdown-menu .current_page_item a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu .current_page_item a:focus,
+  .navbar-inverse .navbar-nav .open .dropdown-menu .current_page_parent a,
+  .navbar-inverse .navbar-nav .open .dropdown-menu .current_page_parent a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu .current_page_parent a:focus  {
+    color: #fff;
+    background-color: #080808;
+  }
+}
+
+/* einde aangepaste active in verband met wordpress */
