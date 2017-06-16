@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title><?php wp_title('|',1,'right'); ?> <?php bloginfo('name'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -22,21 +22,28 @@
 
   <body>
 
-    <div class="navbar navbar-default navbar-inverse navbar-fixed-top " role="navigation"> <!-- <div class="navbar navbar-inverse navbar-fixed-top"> -->
+    <div class="navbar navbar-default " role="navigation"> <!-- <div class="navbar navbar-inverse navbar-fixed-top"> -->
       <div class="navbar-inner">
         <div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
-		  <button type="button"  class="navbar-toggle btn btn-navbar " data-toggle="collapse" data-target=".nav-collapse" aria-controls="nav-collapse" aria-expanded="false">
-			<span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand brand" href="#">Project name</a>
-          <div class="nav-collapse navbar-collapse collapse">
+			<div class="navbar-header>
+		  		<button type="button"  class="navbar-toggle btn btn-navbar " data-toggle="collapse" data-target=".nav-collapse" aria-controls="nav-collapse" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+          		</button>
+          		<a class="brand" href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
+          	</div>	
+          	<div class="nav-collapse navbar-collapse collapse">
             <ul class="nav navbar-nav flex-column"><!-- eventueel ook nav-tabs   -->
   
-  <?php wp_list_pages(array('title_li' => '')); ?>
+ 		  <?php
+  /* wp_list_pages(array('title_li' => ''));
+   * home page uitsluiten van menu op basis van id = 7
+   */
+  			wp_list_pages(array('title_li' => '', 'exclude' => 7)) ; ?>
+  
 
 
            

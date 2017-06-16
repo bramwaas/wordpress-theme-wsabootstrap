@@ -2,15 +2,16 @@
 
 <div class="row">
   <div class="col-xs-12 col-md-9">
-
+	<h1>Nieuws</h1>
 
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-		<h1><?php the_title(); ?></h1>	
-		<?php the_content(); ?>
+		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>	
+		<p><em><?php the_time('l, F jS, Y'); ?></em></p>
+    	<hr>
 
 	<?php endwhile; else: ?>
-		<p><?php _e('Sorry, this page does not exist.'); ?></p>
+		<p><?php _e('Sorry, this post does not exist.'); ?></p>
 	<?php endif; ?>
 
   </div>
