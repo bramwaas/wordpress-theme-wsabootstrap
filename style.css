@@ -14,8 +14,10 @@ This simple theme was built using the example Bootstrap theme "Basic marketing s
 and
 A demo theme built to accompany the Treehouse blog post <a href="http://teamtreehouse.com/wordpress-bootstrap-theme-tutorial">How to Build a WordPress Theme with Bootstrap</a>.
 */
+/*
 @import url('bootstrap/css/bootstrap.css'); 
-@import url('bootstrap/css/bootstrap-responsive.css'); 
+@import url('bootstrap/css/bootstrap-responsive.css');
+*/ 
 body { 
      padding-top: 60px; 
      padding-bottom: 40px; 

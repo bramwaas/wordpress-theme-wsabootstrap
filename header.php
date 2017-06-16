@@ -8,6 +8,8 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
     <link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -20,29 +22,24 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-inverse navbar-fixed-top " role="navigation"> <!-- <div class="navbar navbar-inverse navbar-fixed-top"> -->
       <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+		  <button type="button"  class="navbar-toggle btn btn-navbar " data-toggle="collapse" data-target=".nav-collapse" aria-controls="nav-collapse" aria-expanded="false">
+			<span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Project name</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-
+          </button>
+          <a class="navbar-brand brand" href="#">Project name</a>
+          <div class="nav-collapse navbar-collapse collapse">
+            <ul class="nav navbar-nav flex-column"><!-- eventueel ook nav-tabs   -->
+  
   <?php wp_list_pages(array('title_li' => '')); ?>
 
 
-                </ul>
-              </li>
+           
             </ul>
             <!--form class="navbar-form pull-right">
               <input class="span2" type="text" placeholder="Email">
