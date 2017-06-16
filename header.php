@@ -33,20 +33,17 @@
             		<span class="icon-bar"></span>
             		<span class="icon-bar"></span>
           		</button>
-          		<a class="brand" href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
+          		<a class="navbar-brand brand " href="<?php echo site_url(); ?>"><?php bloginfo('name'); ?></a>
           	</div>	
           	<div class="nav-collapse navbar-collapse collapse">
-            <ul class="nav navbar-nav flex-column"><!-- eventueel ook nav-tabs   -->
+            <ul class="nav navbar-nav flex-column nav-tabs "><!-- eventueel ook nav-tabs   -->
   
  		  <?php
   /* wp_list_pages(array('title_li' => ''));
    * home page uitsluiten van menu op basis van id = 7
    */
   			wp_list_pages(array('title_li' => '', 'exclude' => 7)) ; ?>
-  
-
-
-           
+             
             </ul>
             <!--form class="navbar-form pull-right">
               <input class="span2" type="text" placeholder="Email">
