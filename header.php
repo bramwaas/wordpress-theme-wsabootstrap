@@ -55,27 +55,45 @@
                     <?php else : ?>
                         <a class="site-title" href="<?php echo esc_url( home_url( '/' )); ?>"><?php esc_url(bloginfo('name')); ?></a>
                     <?php endif; ?>
-                </div>
+                </div><!-- /.nabar-brand -->
           	</div>	
           	<div class="navbar-collapse collapse" role="navigation">
-            <ul class="nav navbar-nav flex-column nav-tabs "><!-- eventueel ook nav-tabs   -->
   
  		  <?php
-  /* wp_list_pages(array('title_li' => ''));
+  /*
+   *             <ul class="nav navbar-nav flex-column nav-tabs "><!-- eventueel ook nav-tabs   -->
+   *  wp_list_pages(array('title_li' => ''));
    * home page uitsluiten van menu op basis van id = 7
    * wp_list_pages(array('title_li' => '', 'exclude' => 7)) ; ?>
+   *            </ul>
+   * in plaats hiervan, inclusief <ul> met een functie gekopieerd uit wp_bootstrap,
+   * waarschijnlijk ook aanpassing in functions.php nodig
    */
-  			
-             
-            </ul>
-            <!--form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Email">
-              <input class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Sign in</button>
-            </form -->
-          </div><!--/.nav-collapse -->
-        </div>
+ 		 
+ 		  wp_nav_menu( array(
+ 		  'theme_location'    => 'primary',
+ 		  'depth'             => 3,
+ 		  'link_before' => '', //Add wrapper in the text inside the anchor tag
+ 		  'link_after' => '',
+ 		  'container'         => '',
+ 		  'container_class'   => '',
+ 		  'container_id'      => 'navbar-collapsed',
+ 		  'menu_class'        => 'nav navbar-nav flex-column nav-tabs ', // classes van buitenste <ul>
+ 		  'fallback_cb'       => 'wsabootstrap_navwalker::fallback',
+ 		  'walker'            => new wsabootstrap_navwalker())
+ 		  );
+ 		  ?>
+         
+ 
+          </div><!--/.navbar-collapse -->
+        </div><!-- /.container-fluid -->
       </div>
+    </div><!-- #masthead -->
+    <div id="page-sub-header" style="background-image: url('<?php if(has_header_image()) { header_image(); } ?>');">
+        <div class="container">
+            <h1><?php esc_url(bloginfo('name')); ?></h1>
+            <p><?php bloginfo( 'description'); ?></p>
+        </div>
     </div>
 
     <div class="container">
