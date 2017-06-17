@@ -8,7 +8,7 @@
  * @package wsabootstrap
  * gestart vanuit: http://blog.teamtreehouse.com/responsive-wordpress-bootstrap-theme-tutorial
  * daarna deels overgenomen van @package WP_Bootstrap_Starter
- * verder gewerkt vanuit: 
+ * verder gewerkt vanuit: https://www.lyrathemes.com/bootstrap-wordpress-theme-tutorial-1/
  */
 if ( ! function_exists( 'wsabootstrap_starter_setup' ) ) :
 /**
@@ -68,17 +68,30 @@ function wsabootstrap_starter_setup() {
 endif;
 add_action( 'after_setup_theme', 'wsabootstrap_starter_setup' );
 
-
-function wsabootstrap_scripts_with_jquery()
-{
-	// Register the script like this for a theme:
-// was:	wp_register_script( 'custom-script', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array( 'jquery' ) );
-//<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	wp_register_script( 'custom-script', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array( 'jquery' ) );
-	// For either a plugin or a theme, you can then enqueue the script:
-	wp_enqueue_script( 'custom-script' );
+function wsabootstrap_enqueue_styles() {
+/*
+ * in plaats van header:
+ * <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+ * <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+ * <link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet">
+ */	
+	$dependencies = array();
+	wp_register_style('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', $dependencies, null );
+	$dependencies = array('bootstrap');
+	wp_register_style('bootstrap-theme', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', $dependencies, null);
+	$dependencies = array('bootstrap', 'bootstrap-theme');
+	wp_enqueue_style( 'wsabootstrap-style', get_stylesheet_uri(), $dependencies );
 }
-add_action( 'wp_enqueue_scripts', 'wsabootstrap_scripts_with_jquery' );
+
+function wsabootstrap_enqueue_scripts() {
+	$dependencies = array('jquery');
+// ipv: <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	wp_enqueue_script('bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', $dependencies, '3.3.7', true );
+}
+
+add_action( 'wp_enqueue_scripts', 'wsabootstrap_enqueue_styles' );
+add_action( 'wp_enqueue_scripts', 'wsabootstrap_enqueue_scripts' );
+
 
 if ( function_exists('register_sidebar') )
 	register_sidebar(array(

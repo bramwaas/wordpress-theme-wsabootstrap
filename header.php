@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright  Copyright (C) 2015 - 2017 AHC Waasdorp. All rights reserved.
+ * @copyright  Copyright (C) 2017 - 2017 AHC Waasdorp. All rights reserved.
  * @license    GNU/GPL, see LICENSE
  * @package wsabootstrap
  * 
@@ -9,29 +9,25 @@
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * verder: https://www.lyrathemes.com/bootstrap-wordpress-theme-tutorial-1/
  *
  */
 
 ?><!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
   <head>
-    <meta charset="utf-8">
-    <title><?php wp_title('|',1,'right'); ?> <?php bloginfo('name'); ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le styles -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
-    <link href="<?php bloginfo('stylesheet_url');?>" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <?php wp_enqueue_script("jquery"); ?>
+ 
     <?php wp_head(); ?>  </head>
 
   <body>
@@ -40,7 +36,7 @@
       <div class="navbar-inner">
         <div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header>
+			<div class="navbar-header">
 		  		<button type="button"  class="navbar-toggle btn btn-navbar " data-toggle="collapse" data-target=".nav-collapse" aria-controls="nav-collapse" aria-expanded="false">
 					<span class="sr-only"><?php echo esc_html__('Toggle navigation', 'wsabootstrap'); ?></span>
             		<span class="icon-bar"></span>
@@ -55,21 +51,11 @@
                     <?php else : ?>
                         <a class="site-title" href="<?php echo esc_url( home_url( '/' )); ?>"><?php esc_url(bloginfo('name')); ?></a>
                     <?php endif; ?>
-                </div><!-- /.nabar-brand -->
+                </div><!-- /.navbar-brand -->
           	</div>	
           	<div class="navbar-collapse collapse" role="navigation">
   
  		  <?php
-  /*
-   *             <ul class="nav navbar-nav flex-column nav-tabs "><!-- eventueel ook nav-tabs   -->
-   *  wp_list_pages(array('title_li' => ''));
-   * home page uitsluiten van menu op basis van id = 7
-   * wp_list_pages(array('title_li' => '', 'exclude' => 7)) ; ?>
-   *            </ul>
-   * in plaats hiervan, inclusief <ul> met een functie gekopieerd uit wp_bootstrap,
-   * waarschijnlijk ook aanpassing in functions.php nodig
-   */
- 		 
  		  wp_nav_menu( array(
  		  'theme_location'    => 'primary',
  		  'depth'             => 3,
@@ -83,8 +69,7 @@
  		  'walker'            => new wsabootstrap_navwalker())
  		  );
  		  ?>
-         
- 
+
           </div><!--/.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </div>

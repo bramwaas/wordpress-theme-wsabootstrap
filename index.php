@@ -14,7 +14,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  * gestart vanuit: http://blog.teamtreehouse.com/responsive-wordpress-bootstrap-theme-tutorial
  * daarna deels overgenomen van @package WP_Bootstrap_Starter
- * verder gewerkt vanuit: 
+ * verder gewerkt vanuit: https://www.lyrathemes.com/bootstrap-wordpress-theme-tutorial-1/
  *
  */
 
